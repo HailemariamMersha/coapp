@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackOutput = document.getElementById('feedback-output');
 
     // Backend URL - will be updated with the Render URL
-    const BACKEND_URL = 'https://coapp-backend.onrender.com';
+    const BACKEND_URL = 'https://coapp-epzh.onrender.com';
 
     submitButton.addEventListener('click', async () => {
         const essay = essayInput.value.trim();
