@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const essayInput = document.getElementById('essay-input');
     const feedbackOutput = document.getElementById('feedback-output');
 
+    // Backend URL - will be updated with the Render URL
+    const BACKEND_URL = 'https://coapp-backend.onrender.com';
+
     submitButton.addEventListener('click', async () => {
         const essay = essayInput.value.trim();
         
@@ -27,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackOutput.innerHTML = '<p>Generating feedback...</p>';
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/feedback', {
+            const response = await fetch(`${BACKEND_URL}/feedback`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
