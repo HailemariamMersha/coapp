@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedbackOutput = document.getElementById('feedback-output');
 
     // Backend URL - will be updated with the Render URL
-    const BACKEND_URL = 'https://coapp-backend.onrender.com';
+    const BACKEND_URL = 'https://coapp-epzh.onrender.com';
 
     submitButton.addEventListener('click', async () => {
         const essay = essayInput.value.trim();
@@ -30,15 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackOutput.innerHTML = '<p>Generating feedback...</p>';
 
         try {
+            console.log('Sending request to:', `${BACKEND_URL}/feedback`);
             const response = await fetch(`${BACKEND_URL}/feedback`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
+                credentials: 'include',
+                mode: 'cors',
                 body: JSON.stringify({ essay })
             });
 
+            console.log('Response status:', response.status);
+            
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || `HTTP error! status: ${response.status}`);
+            }
+
             const data = await response.json();
+            console.log('Received data:', data);
 
             if (data.error) {
                 feedbackOutput.innerHTML = `<p class="error">${data.error}</p>`;
@@ -46,7 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 feedbackOutput.innerHTML = `<p>${data.feedback}</p>`;
             }
         } catch (error) {
-            feedbackOutput.innerHTML = '<p class="error">Failed to connect to the server. Please try again later.</p>';
+            console.error('Error details:', error);
+            feedbackOutput.innerHTML = `
+                <p class="error">
+                    Failed to connect to the server. Please try again later.<br>
+                    Error: ${error.message}
+                </p>`;
         } finally {
             submitButton.disabled = false;
             submitButton.textContent = 'Get Feedback';
