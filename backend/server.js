@@ -5,22 +5,17 @@ const { CohereClient } = require('cohere-ai');
 
 const app = express(); 
 
+// Initialize Cohere client
+const cohere = new CohereClient({
+    token: process.env.COHERE_API_KEY
+});
+
 // Configure CORS with more permissive settings for development
 app.use(cors({
-    origin: [
-        'https://hailemariammersha.github.io',
-        'http://localhost:5000',
-        'http://127.0.0.1:5000',
-        'http://localhost:5500',
-        'http://127.0.0.1:5500',
-        'http://localhost:5501',
-        'http://127.0.0.1:5501'
-    ],
+    origin: '*', // Allow all origins for now
     methods: ['GET', 'POST', 'OPTIONS'],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Accept', 'Authorization'],
-    exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
-    maxAge: 86400 // 24 hours
+    allowedHeaders: ['Content-Type', 'Accept', 'Authorization']
 }));
 
 // Add pre-flight OPTIONS handler
@@ -29,13 +24,18 @@ app.options('*', cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("CoApp backend is working!");
+  res.json({ status: "ok", message: "CoApp backend is working!" });
 });
 
 app.post("/feedback", async (req, res) => {
   const { essay } = req.body;
 
+  if (!essay) {
+    return res.status(400).json({ error: "Essay is required" });
+  }
+
   try {
+    console.log('Generating feedback for essay...');
     const response = await cohere.generate({
       model: 'command',
       prompt: `You are an experienced college essay reviewer. Please provide constructive feedback on the following essay, focusing on clarity, structure, and impact:\n\n${essay}`,
@@ -46,19 +46,24 @@ app.post("/feedback", async (req, res) => {
       return_likelihoods: 'NONE'
     });
 
-    if (!response || !response.body || !response.body.generations) {
+    console.log('Received response from Cohere');
+
+    if (!response || !response.generations) {
+      console.error('Invalid response from Cohere:', response);
       return res.status(500).json({ error: "Failed to generate feedback" });
     }
 
-    const feedback = response.body.generations[0].text.trim();
+    const feedback = response.generations[0].text.trim();
     res.json({ feedback });
 
   } catch (err) {
-    console.error(err);
+    console.error('Error generating feedback:', err);
     res.status(500).json({ error: "Something went wrong with the AI service." });
   }
 });
 
-app.listen(5000, "127.0.0.1", () => {
-  console.log("Server running on http://127.0.0.1:5000");
+// Use PORT from environment variable or default to 5000
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
