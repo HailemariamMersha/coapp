@@ -1,37 +1,40 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const cohere = require('cohere-ai');
+const { CohereClient } = require('cohere-ai');
 
 const app = express(); 
 
-// Initialize Cohere client
-cohere.init(process.env.COHERE_API_KEY);
+// Configure CORS
+app.use(cors({
+    origin: ['https://hailemariammersha.github.io', 'http://localhost:5000'],
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
 
-// Basic CORS setup
-app.use(cors());
-
-// Parse JSON bodies
 app.use(express.json());
+
+// Initialize Cohere client
+const cohere = new CohereClient({
+    token: process.env.COHERE_API_KEY
+});
 
 // Health check endpoint
 app.get("/", (req, res) => {
-  res.json({ status: "ok", message: "CoApp backend is working!" });
+  res.send("CoApp backend is working!");
 });
 
 // Feedback endpoint
 app.post("/feedback", async (req, res) => {
   const { essay } = req.body;
 
-  if (!essay) {
-    return res.status(400).json({ error: "Essay is required" });
-  }
-
   try {
-    console.log('Generating feedback for essay...');
-    const response = await cohere.generate({
+    const result = await cohere.generate({
       model: 'command',
-      prompt: `You are an experienced college essay reviewer. Please provide constructive feedback on the following essay, focusing on clarity, structure, and impact:\n\n${essay}`,
+      prompt: `You are an experienced college essay reviewer. Please provide constructive feedback on 
+the following essay, focusing on clarity, structure, and impact:
+
+${essay}`,
       max_tokens: 300,
       temperature: 0.7,
       k: 0,
@@ -39,26 +42,17 @@ app.post("/feedback", async (req, res) => {
       return_likelihoods: 'NONE'
     });
 
-    console.log('Received response from Cohere');
-
-    if (!response || !response.body || !response.body.generations) {
-      console.error('Invalid response from Cohere:', response);
+    if (!result || !result.generations) {
       return res.status(500).json({ error: "Failed to generate feedback" });
     }
 
-    const feedback = response.body.generations[0].text.trim();
+    const feedback = result.generations[0].text.trim();
     res.json({ feedback });
 
   } catch (err) {
-    console.error('Error generating feedback:', err);
+    console.error(err);
     res.status(500).json({ error: "Something went wrong with the AI service." });
   }
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error('Server error:', err);
-  res.status(500).json({ error: "Internal server error" });
 });
 
 // Use PORT from environment variable or default to 5000
