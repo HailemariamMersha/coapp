@@ -10,23 +10,18 @@ const cohere = new CohereClient({
     token: process.env.COHERE_API_KEY
 });
 
-// Configure CORS with more permissive settings for development
-app.use(cors({
-    origin: '*', // Allow all origins for now
-    methods: ['GET', 'POST', 'OPTIONS'],
-    credentials: true,
-    allowedHeaders: ['Content-Type', 'Accept', 'Authorization']
-}));
+// Basic CORS setup
+app.use(cors());
 
-// Add pre-flight OPTIONS handler
-app.options('*', cors());
-
+// Parse JSON bodies
 app.use(express.json());
 
+// Health check endpoint
 app.get("/", (req, res) => {
   res.json({ status: "ok", message: "CoApp backend is working!" });
 });
 
+// Feedback endpoint
 app.post("/feedback", async (req, res) => {
   const { essay } = req.body;
 
@@ -60,6 +55,12 @@ app.post("/feedback", async (req, res) => {
     console.error('Error generating feedback:', err);
     res.status(500).json({ error: "Something went wrong with the AI service." });
   }
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Server error:', err);
+  res.status(500).json({ error: "Internal server error" });
 });
 
 // Use PORT from environment variable or default to 5000
