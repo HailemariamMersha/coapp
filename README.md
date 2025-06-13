@@ -3,7 +3,7 @@
 
 **CoApp** is a free web platform that helps students navigate the U.S. college application process. It offers personalized essay feedback using Cohere AI, a detailed Common App manual, and aims to expand with community review and test prep features.
 
-This project was built to support underserved students while helping the developer grow full-stack web development skills.
+This project was built to support underserved students while working to improve my full-stack web development skills.
 
 ---
 
