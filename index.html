@@ -74,18 +74,138 @@
             <div class="college-card">
                 <h3>Harvard University</h3>
                 <p>Need-blind admission for international students</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <a href="colleges.html" class="learn-more">View All Colleges</a>
             </div>
             <div class="college-card">
                 <h3>MIT</h3>
                 <p>Need-blind admission with full financial aid</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <a href="colleges.html" class="learn-more">View All Colleges</a>
             </div>
             <div class="college-card">
                 <h3>Yale University</h3>
                 <p>Need-blind admission for international students</p>
-                <a href="#" class="learn-more">Learn More</a>
+                <a href="colleges.html" class="learn-more">View All Colleges</a>
             </div>
+        </div>
+
+        <!-- College Financial Aid Table -->
+        <div class="table-container">
+            <style>
+                .college-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-family: 'Poppins', sans-serif;
+                    margin: 2rem 0;
+                    background: white;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    border-radius: 8px;
+                    overflow: hidden;
+                }
+                .college-table th, .college-table td {
+                    border: 1px solid #eee;
+                    padding: 15px;
+                    text-align: left;
+                }
+                .college-table th {
+                    background-color: #4a90e2;
+                    color: white;
+                    font-weight: 500;
+                }
+                .college-table tr:nth-child(even) {
+                    background-color: #f8f9fa;
+                }
+                .college-table tr:hover {
+                    background-color: #f1f3f5;
+                }
+                .college-logo {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: contain;
+                }
+                .college-table a {
+                    color: #4a90e2;
+                    text-decoration: none;
+                    font-weight: 500;
+                }
+                .college-table a:hover {
+                    text-decoration: underline;
+                }
+                .table-container {
+                    padding: 0 1rem;
+                    max-width: 1200px;
+                    margin: 0 auto;
+                }
+            </style>
+
+            <table class="college-table">
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>College</th>
+                        <th>Acceptance Rate</th>
+                        <th>Need-Blind (Intl)?</th>
+                        <th>Financial Aid Office</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/4/44/MIT_Seal.svg" alt="MIT" class="college-logo"></td>
+                        <td>MIT</td>
+                        <td>~4.5%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://sfs.mit.edu/undergraduate-students/apply-for-aid/international/" target="_blank">MIT Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/2/29/Harvard_shield_wreath.svg" alt="Harvard" class="college-logo"></td>
+                        <td>Harvard University</td>
+                        <td>~4–5%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://college.harvard.edu/financial-aid" target="_blank">Harvard Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/e/e2/Yale_University_Shield_1.svg" alt="Yale" class="college-logo"></td>
+                        <td>Yale University</td>
+                        <td>~4.5%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://finaid.yale.edu/" target="_blank">Yale Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/7/71/Princeton_U_Shield.svg" alt="Princeton" class="college-logo"></td>
+                        <td>Princeton University</td>
+                        <td>~5%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://admission.princeton.edu/cost-aid" target="_blank">Princeton Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/f/f2/Amherst_College_Seal.svg" alt="Amherst" class="college-logo"></td>
+                        <td>Amherst College</td>
+                        <td>~10%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://www.amherst.edu/offices/financialaid" target="_blank">Amherst Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/d/d7/Dartmouth_College_shield.svg" alt="Dartmouth" class="college-logo"></td>
+                        <td>Dartmouth College</td>
+                        <td>~8.8%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://admissions.dartmouth.edu/afford-aid" target="_blank">Dartmouth Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/6/60/Brown_University_coat_of_arms.svg" alt="Brown" class="college-logo"></td>
+                        <td>Brown University</td>
+                        <td>~6%</td>
+                        <td>✅ Yes (Class of 2029+)</td>
+                        <td><a href="https://financialaid.brown.edu/" target="_blank">Brown Financial Aid</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://upload.wikimedia.org/wikipedia/en/1/13/Bowdoin_College_Seal.svg" alt="Bowdoin" class="college-logo"></td>
+                        <td>Bowdoin College</td>
+                        <td>~8%</td>
+                        <td>✅ Yes</td>
+                        <td><a href="https://www.bowdoin.edu/financial-aid/" target="_blank">Bowdoin Financial Aid</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
