@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Student Financial Aid - CoApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .college-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Poppins', sans-serif;
+            margin: 2rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .college-table th,
+        .college-table td {
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            text-align: left;
+        }
+        .college-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        .college-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        .college-logo:hover {
+            transform: scale(1.1);
+        }
+        .college-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        .college-table a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .college-table a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <h1>International Student Financial Aid</h1>
+        <p>Below is a comprehensive list of top U.S. colleges that offer financial aid to international students.</p>
+        
+        <table class="college-table">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>College</th>
+                    <th>Acceptance Rate</th>
+                    <th>Need-Blind for Intl?</th>
+                    <th>Financial Aid Office</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/2/29/Harvard_University_shield.svg" alt="Harvard" class="college-logo"></td>
+                    <td>Harvard University</td>
+                    <td>~4%</td>
+                    <td>✅ Yes</td>
+                    <td><a href="https://college.harvard.edu/financial-aid" target="_blank">Harvard Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_Seal.svg" alt="MIT" class="college-logo"></td>
+                    <td>MIT</td>
+                    <td>~4%</td>
+                    <td>✅ Yes</td>
+                    <td><a href="https://sfs.mit.edu/" target="_blank">MIT Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Yale_University_Shield_1.svg" alt="Yale" class="college-logo"></td>
+                    <td>Yale University</td>
+                    <td>~5%</td>
+                    <td>✅ Yes</td>
+                    <td><a href="https://finaid.yale.edu/" target="_blank">Yale Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Cornell_University_seal.svg" alt="Cornell" class="college-logo"></td>
+                    <td>Cornell University</td>
+                    <td>~9%</td>
+                    <td>✅ Need-blind for incomes & meet need for some</td>
+                    <td><a href="https://finaid.cornell.edu/" target="_blank">Cornell Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/c/cb/Stanford_University_seal_2003.svg" alt="Stanford" class="college-logo"></td>
+                    <td>Stanford University</td>
+                    <td>~4%</td>
+                    <td>✅ Yes; meets 100% need</td>
+                    <td><a href="https://financialaid.stanford.edu/" target="_blank">Stanford Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Georgetown_University_shield.svg" alt="Georgetown" class="college-logo"></td>
+                    <td>Georgetown University</td>
+                    <td>~12%</td>
+                    <td>✅ Yes, meets need for students</td>
+                    <td><a href="https://finaid.georgetown.edu/" target="_blank">Georgetown Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/f/fb/University_of_Chicago_shield.svg" alt="UChicago" class="college-logo"></td>
+                    <td>University of Chicago</td>
+                    <td>~6%</td>
+                    <td>✅ Yes, meets 100% need</td>
+                    <td><a href="https://financialaid.uchicago.edu/" target="_blank">UChicago Financial Aid</a></td>
+                </tr>
+                <tr>
+                    <td><img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Pomona_College_seal.svg" alt="Pomona" class="college-logo"></td>
+                    <td>Pomona College</td>
+                    <td>~7%</td>
+                    <td>✅ Yes, meets need</td>
+                    <td><a href="https://www.pomona.edu/financial-aid" target="_blank">Pomona Financial Aid</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html> 
