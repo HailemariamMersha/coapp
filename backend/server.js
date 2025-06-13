@@ -1,14 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-const { CohereClient } = require('cohere-ai');
+const cohere = require('cohere-ai');
 
 const app = express(); 
 
 // Initialize Cohere client
-const cohere = new CohereClient({
-    token: process.env.COHERE_API_KEY
-});
+cohere.init(process.env.COHERE_API_KEY);
 
 // Basic CORS setup
 app.use(cors());
@@ -43,12 +41,12 @@ app.post("/feedback", async (req, res) => {
 
     console.log('Received response from Cohere');
 
-    if (!response || !response.generations) {
+    if (!response || !response.body || !response.body.generations) {
       console.error('Invalid response from Cohere:', response);
       return res.status(500).json({ error: "Failed to generate feedback" });
     }
 
-    const feedback = response.generations[0].text.trim();
+    const feedback = response.body.generations[0].text.trim();
     res.json({ feedback });
 
   } catch (err) {
