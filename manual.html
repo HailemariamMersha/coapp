@@ -1,28 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CoApp Manual</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common App Guide - CoApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .manual-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .manual-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .manual-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .manual-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .step-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        .step-item {
+            position: relative;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step-item:hover {
+            transform: translateY(-5px);
+        }
+        .step-item::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            width: 30px;
+            height: 30px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .step-content {
+            margin-left: 3rem;
+        }
+        .step-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        .step-tip {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+        .step-tip i {
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+        .manual-footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .manual-footer a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .manual-footer a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        .back-button {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="manual.html">Application Guide</a>
-  </nav>
+    <div class="manual-container">
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
 
-  <h1>Common App Guide</h1>
-  <ol>
-    <li><strong>Create an Account:</strong> Sign up at <a href="https://www.commonapp.org/">commonapp.org</a></li>
-    <li><strong>Choose Colleges:</strong> Add schools to your application list.</li>
-    <li><strong>Fill Personal Info:</strong> Name, address, family, etc.</li>
-    <li><strong>Education History:</strong> High school, GPA, transcripts.</li>
-    <li><strong>Activities:</strong> List clubs, leadership, and other involvements.</li>
-    <li><strong>Test Scores:</strong> Optional for many schools, but include if required.</li>
-    <li><strong>Personal Statement:</strong> Write the main essay (CoApp helps with this!).</li>
-    <li><strong>College-Specific Questions:</strong> Some schools ask extra questions or essays.</li>
-    <li><strong>Recommendations:</strong> Invite teachers and counselors to submit letters.</li>
-    <li><strong>Review & Submit:</strong> Double-check and submit with fee or waiver.</li>
-  </ol>
+        <div class="manual-header">
+            <h1>📘 Common App College Application Guide</h1>
+            <p>Welcome to the step-by-step guide to completing the <a href="https://www.commonapp.org/" target="_blank">Common Application</a>. This guide is designed for international and U.S.-based students applying to U.S. colleges. Each step includes helpful links and explanations.</p>
+        </div>
+
+        <ol class="step-list">
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Create a Common App Account</h2>
+                    <p class="step-description">Visit <a href="https://www.commonapp.org/" target="_blank">commonapp.org</a> and click <em>Start your application</em>. You'll create a username and password to access your dashboard.</p>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Add Colleges to Your Dashboard</h2>
+                    <p class="step-description">Once logged in, use the <em>College Search</em> tab to find schools and add them to your list. Each school may have different requirements and deadlines.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-link"></i>
+                        <a href="https://www.commonapp.org/explore/" target="_blank">Explore colleges</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Fill Out Your Profile</h2>
+                    <p class="step-description">Complete your personal information: name, contact info, citizenship, language, family and more. This helps colleges understand your background.</p>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Report Your Education History</h2>
+                    <p class="step-description">Add details about your secondary school, expected graduation date, grades, and curriculum. If you've attended multiple schools, list all.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-info-circle"></i>
+                        <a href="https://www.commonapp.org/help-center" target="_blank">Education FAQ</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">List Your Activities</h2>
+                    <p class="step-description">Include extracurriculars, leadership roles, sports, internships, and community service. You can list up to 10 activities.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-lightbulb"></i>
+                        Rank them by importance and use active, impact-oriented language.
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Standardized Test Scores</h2>
+                    <p class="step-description">Many schools are test-optional. You can self-report SAT, ACT, TOEFL, IELTS, etc. If you don't have scores, some schools won't require them.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-flask"></i>
+                        <a href="https://www.commonapp.org/apply/first-year" target="_blank">Test policy info</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Write Your Personal Essay</h2>
+                    <p class="step-description">Choose one of the 7 prompts to write a 250–650 word personal statement. This is your chance to share your story and voice.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-pen"></i>
+                        Use <a href="index.html#essay-helper">CoApp's Essay Feedback Tool</a> to get AI or peer-reviewed suggestions.
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Answer College-Specific Questions</h2>
+                    <p class="step-description">Some colleges require extra essays or short answers. You'll find these in each college's tab after you add them.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-tools"></i>
+                        Customize your answers per school's mission.
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Request Recommendation Letters</h2>
+                    <p class="step-description">Invite teachers and counselors by email. You can track submissions on your dashboard.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-graduation-cap"></i>
+                        <a href="https://www.commonapp.org/apply/first-year/recommendations-and-ferpa" target="_blank">Recommendations & FERPA</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="step-item">
+                <div class="step-content">
+                    <h2 class="step-title">Review & Submit Applications</h2>
+                    <p class="step-description">Final step! Check each section for completeness. Pay fees or apply for fee waivers. Submit before deadlines.</p>
+                    <div class="step-tip">
+                        <i class="fas fa-credit-card"></i>
+                        <a href="https://www.commonapp.org/faq/frequently-asked-questions/what-are-application-fees" target="_blank">Fee waiver info</a>
+                    </div>
+                </div>
+            </li>
+        </ol>
+
+        <div class="manual-footer">
+            <p>Need help? Join our <a href="https://discord.gg/" target="_blank">CoApp student community</a> or contact a mentor.</p>
+        </div>
+    </div>
 </body>
 </html>
